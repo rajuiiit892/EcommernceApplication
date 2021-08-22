@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import {  HashRouter as Router } from 'react-router-dom';
+import { createHashHistory } from 'history';
+import store from './redux/store';
 import './index.css';
-import App from './App';
+import 'antd/dist/antd.css';
+import SiderMenu from './components/SiderMenu';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+    <Router history={createHashHistory()}>
+      <SiderMenu />
+    </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
